@@ -1,0 +1,484 @@
+Day1:
+Data:row data 
+Information :meaningful data 
+insights:information in actionable item
+
+RDBMS--
+
+data file handling dbms
+
+case study
+irctc--rail 
+e commerce 
+anlysis --offers 
+
+Big Data--Technology
+hadoop -framework
+
+
+
+Life Cycle data
+1.Cleaning : check for null,duplications.missing data.
+2.Data Processing:batch processing
+3.Data visulization:reports,graphs,dashboards,  python , tabblue
+
+Issues for Big Data:
+3 v's og big data
+volumn:large in size
+velocity:speed, 
+variety:different 
+	strutured:excel ,tables
+	semistr:pdf ,xml,csv
+	unstr:audio or video files
+
+4 v's 
+value:data shd be converted to money
+
+5 v's
+veracity:incomplete,inconsistance,incorrect .
+
+6 v's
+variablity:data keep on changing ...
+
+10 v's:
+volumn: size 
+velocity:
+variety
+value:convert it into money
+veracity:
+variabliity:data keep on changing 
+validity:standard
+venue:distrubited arch
+vocabulory:unique syntax for data.
+vagueness:no dedicated tool.
+visulization:presentation
+
+Roles Of Bigdata:
+Data Enginer:collection . deciding which frameowrk
+Data Analyst:collect & analyze the data .
+
+Schema: str
+
+fixed str --RDBMS  
+schema on read		schema on write
+hadoop(dynamic)			RDBMS(static)
+
+
+SQL 		NOSQL
+row format	column format
+
+RDBMS
+Emp--empid,ename,sal
+MongoDB:
+
+Collection--table
+emp document{json format}
+emp.insert ({fname:"manisha","empid":"100"});
+emp.insert ({fname:"manisha","empid":"100","loc":"pune"});
+
+CRUD operations
+
+Data:
+OLAP vsOLTP
+Temporal Data:
+	Stock exchange
+	weather forcast
+	hospitality
+		Time based data
+GeoSpecial Data:GeoLocations
+Streaming Data-various channels ,mobile,signal,workstation
+Meta data:Data about data  brands , color,
+
+scale of data :
+
+Common problems:
+-size
+-heterogeneous 
+-scalability
+-rdbms is costly
+-building single sys is complex and costly
+
+
+scale up		scale down
+mc incofiguration	distrubited arch
+complex  & costly	ecnomical & QUICK
+			-nodes fail frequently
+			-no of nodes can change
+			-communcation b/w nodes
+			-analysis take will take time to collect the data from 			
+different clusters
+
+data cleaning 
+eda 
+panda's packages in python 
+
+Data Cleaning-- use eda(exploratory data analysis),panda's  packages pf python.
+Data Processing --Hadoop 
+Data Visulization --tabblue, python used for data visulization ,shiney arc studio(arc paltform)
+
+componenets
+hdfs & Map Reduce 
+
+etl tool load,extract -->big data hadoop .
+analytics --> spark 
+java ,scala,r ,python (processing) -->data set (.csv)--panda cleaning-->
+batch processing /real time chose tech (big data ) scoop import -->java api  for processing -->export as jar -->hive 
+Day 2:
+solve by Hadoop framework.
+
+Overview of Hadoop
+1. open source java progarmming based frame work ,processing of big    data in a distributed  env
+2.reliable,scalable platform for strorage & analysis
+3.based on google file system or GFS
+4. runs on no of application on distributed   sys  with thousand of nodes invol  pentabyte.
+5.belogs to Apache
+6.scalable
+7.batch processing
+8.low cost commodity hardware scattered over multiple clusters
+8.Fault tolerance:
+9.supprts muliple languages as scala,java ,phython
+https://www.crayondata.com/blog/top-big-data-technologies-used-store-analyse-data/
+https://www.guru99.com/bigdata-tutorials.html
+
+https://www.analyticsindiamag.com/4-programming-languages-every-big-data-enthusiast-must-ace/
+
+/www.dezyre.com/article/hadoop-cluster-overview-what-it-is-and-how-to-setup-one/356
+
+
+Hadoop
+
+component
+
+stroage logic=HDFS
+processing ==Map Reduce
+
+1.x-
+
+stroage logic=HDFS
+processing ==Map Reduce
+
+2.x
+stroage logic=HDFS
+processing =YARN (hdfs handling , os of hadoop ,)
+
+
+5 daemon
+HDFS:Strorage logic
+	Name node--metadata
+	Data Node--data
+	Secondry Data Note--
+
+Processing logic:
+1.x
+	TaskManager--
+	JobTracker--
+2.x
+	NodeManager
+	ResourceManager
+
+NN,SNN(NN backup),Jobtracker(RM)-Master Node
+DataNode,TaskManager(NM)--Slave node
+
+single mater and multiple slave
+
+Map Reduce:
+A cluster is a collection of nodes. A node is a process running on a virtual or physical machine or in a container
+Hadoop is a master-slave model, with one master (albeit with an optional High Availability hot standby) 
+coordinating the role of many slaves. 
+Yarn is the resource manager that coordinates what task runs where,
+keeping in mind available CPU, memory, network bandwidth, and storage.
+
+ResourceManager and NodeManager. 
+The NodeManager reports to the ResourceManager CPU, memory, disk, and network usage so that the 
+ResourceManager can decide where to direct new tasks. 
+The ResourceManager does this with the Scheduler and ApplicationsManager.
+
+
+
+
+hadoop
+
+workstation
+oracle virtual box/vmware
+cloudera oracle packges/coludera vm pkgs
+Download Location: https://downloads.cloudera.com/demo_vm/virtualbox/cloudera-quickstart-vm-5.12.0-0-virtualbox.zip
+commands:
+1. sudo jps
+
+2 terminal
+	user terminal($)
+	admin erminal(#)
+su--to change to admin terminal
+pwd:cloudera
+exit
+
+clear
+
+hadoop fs-->various commands supported in HDFS
+hadoop fs -help <command>
+hadoop fs -help cat
+hadoop fs -help put
+hadoop fs  -mkdir /dir1 /dir2 /dir3--create multiple directories in hdfs
+hadoop fs -mkdir -p /dir1/dir2/dir3 (subdirectiories in parent directory)
+
+cd dir1
+hadoop fs  -ls \ 
+
+--
+use put command to copy file form LFS to HDFS
+hadoop fs -put /home/cloudera/Desktop/emp.txt /dir1/dir2/dir3
+
+to display data
+hadoop fs -cat /dir1/dir2/dir3/emp.txt
+hadoop fs -text /dir1/dir2/dir3/emp.txt
+explore:
+hadoop fs -ls /dir1/dir2/dir3
+hadoop fs -
+hadoop fs -touchz /dir1/stu.txt
+hadoop fs -ls /dir1
+hadoop fs ls /  
+
+test
+hadoop fs -test -z /dir1/stu.txt
+$ echo $?
+hadoop fs -test -d /dir1
+	$ echo $?(0)
+hadoop fs -test -f /dir1/stu.txt
+$ echo $?(0)
+
+$gedit /home/cloudera/Desktop/sample.txt
+$hadoop fs -put /h/c/d/sample.txt /
+
+Note:
+You can't access HDFS file from local machine(system user), 
+so that you can't open HDFS file using gedit.
+ 
+$hadoop fs -cat /sample.txt
+
+Day 3:
+hadoop fs -copyToLocal /d1/customer.txt  /home/cloudera//Desktop
+
+
+
+hadoop fs -copyFromLocal /home/cloudera/Desktop//product.txt /d1
+
+hadoop fs -copyFromLocal -f /home/cloudera/Desktop//product.txt /d1
+
+-put 
+
+hadoop fs -get /d1/product.txt /home/cloudera/Desktop/demo
+
+hadoop fs -du -s /d1/product.txt
+
+hadoop fs -count /d1
+
+hadoop fs -rm /d1/product.txt ---delete file 
+
+hadoop fs -rmdir /d1
+rmdir: `/d1': Directory is not empty-- remove dir if it is empty
+
+hadoop fs -rm -r  /d1 --remove dir
+
+hdfs dfs -text /dir1/customer.txt
+
+hadoop fs -cp /dir1/customer.txt /d1
+
+hdfs dfs -setrep -w 3 /user/hadoop/dir1
+
+hadoop fs -chmod 755 /d1/customer.txt
+
+hadoop fs -tail  /d1/customer.txt
+
+hadoop fs -appendToFile  /home/cloudera/Desktop/demo/product.txt
+ /home/cloudera/Desktop/demo/student.txt /d1/customer.txt
+
+
+HBase
+Day1:
+HBase (NoSQL)-->HDFS
+Hbase -->Random 	Hadoop-->Batch processing linear /sequential access
+fater 
+
+Table 
+Row -->Column Families
+Col Fanilies-->Columns
+Clumns-->key , value pair
+
+Arch 
+vertically
+Mater Server
+Region Server
+Client 
+
+personal,professional,educational  are regions -->region server
+
+master server -->Manages schema, creation of tables and column families ,load balancing 
+
+hbase shell
+exit
+su
+PLEASE MUTE NORTELS
+
+
+list--to list all tables 
+status
+version
+table_help
+whoami
+help create 
+------------------------
+if any service is down 
+$su
+pwd cloudera
+#sudo service hbase-master restart
+#sudo service hbase-regionserver restart
+-------------------------------
+disable 'emp'
+list 
+drop 'emp'
+
+-------------------------------
+create ‘<table name>’,’<column family>’
+create 'emp','personal','professional'
+
+put 'emp' ,'1','personal:name','manisha'
+put 'emp' ,'1','personal:city','pune'
+put 'emp' ,'1','personal:age','52'
+put 'emp' ,'1','professional:cmp','Atos Syntel'
+put 'emp' ,'1','professional:sal','12456'
+
+put 'emp' ,'2','personal:fname','manisha'
+
+put 'emp' ,'2','location:city','pune'--error as unknown family
+
+create 'customer' ,'pdetails','prddetails'
+put 'customer','101','pdetails:cname','Manisha'
+put 'customer','101','pdetails:gender','Female'
+
+put 'customer' ,'101','prddetails:pname','Laptop'
+put 'customer','101','prddetails:brd','Dell'
+
+Day 2:
+
+create table emp ,'personal'
+alter 'emp' ,'personal',VERSIONS=>2;
+
+alter 'emp',NAME=>'professional',VERSIONS=>5
+alter 'emp','f1',{NAME=>'f2' ,IN_MEMORY=>'true'},{NAME=>f3,VERSIONS=>5}
+
+put 'emp' ,'1','personal:fname','Manisha'
+put 'emp' ,'1','personal:loc','Pune'
+put 'emp' ,'1','personal:age','11'
+
+scan 'emp' ,{column=>'personal',VERSION=>1}
+
+alter 'emp', READONLY
+
+alter 'empm','delete'=>'professional'
+
+
+hbase> alter 'emp;, NAME => 'professional', METHOD => 'delete'
+
+count 'emp'--> no of rows
+
+
+
+
+
+
+
+
+build an optimized request.
+HBase Tutorial: Where we can use HBase?
+•	We should use HBase where we have large data sets (millions or billions or rows and columns) and we require fast, random and real time, read and write access over the data.
+•	The data sets are distributed across various clusters and we need high scalability to handle data.
+•	The data is gathered from various data sources and it is either semi structured or unstructured data or a combination of all. It could be handled easily with HBase.
+
+HBase --
+
+
+Hive:
+Hadoop
+
+Hadoop is an open-source framework to store and process Big Data in a distributed environment. It contains two modules, one is MapReduce and another is Hadoop Distributed File System (HDFS).
+
+MapReduce: It is a parallel programming model for processing large amounts of structured, semi-structured, and unstructured data on large clusters of commodity hardware.
+
+
+HDFS:Hadoop Distributed File System is a part of Hadoop framework, used to store and process the datasets. It provides a fault-tolerant file system to run on commodity hardware.
+
+
+The Hadoop ecosystem contains different sub-projects (tools) such as Sqoop, Pig, and Hive that are used to help Hadoop modules.
+
+Sqoop: It is used to import and export data to and from between HDFS and RDBMS.
+
+
+Pig: It is a procedural language platform used to develop a script for MapReduce operations.
+
+
+Hive: It is a platform used to develop SQL type scripts to do MapReduce operations.
+
+Pig is only one tool which can process the unstr data.yahoo product
+Hive is a data warehouse infrastructure software that can create interaction between user and HDFS.
+It is a FAcebook product.
+It is used for quering purpose or to analyze large amount of str data.
+It is using HQL language.It is like SQL.
+ETL tool just to load the data.
+In Hive update and delete are not possible
+
+Hbase client pig and hive.
+
+if u want to do update in hive then first we need to create a replica in hbase and perform update in hbase .
+hbase can perform CRUD operation
+convert jobs into MapReduce jobs
+operations
+load 
+
+Sqoop
+Sqoop version
+mysql -u root -p
+password :cloudera
+
+Import/Export with rdbms
+
+$ sqoop import --connect jdbc:mysql://quickstart.cloudera:3306/retail_db
+ --username root -P --table departments --target-dir /todayresultwed -m 1
+
+or
+
+sqoop import --connect jdbc:mysql://localhost:3306/retail_db 
+--username root -P --table departments --target-dir /todayresultwed -m 1
+m-->Mapper by default the mapper job is 4 to change it to 1
+
+To display Data on command prompt
+$ hadoop fs -ls /todayresultwed
+$ hadoop fs -cat /todayresultwed/part*
+
+
+Export HDFS to MYSQL
+
+mysql> create table departments1 like departments;
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> select * from departments1;
+Empty set (0.00 sec)
+
+
+clear the screen in mysql ctrl+L
+
+
+$sqoop export --connect jdbc:mysql://localhost:3306/retail_db --username 
+root -P --table departments1 --export-dir /todayresultwed1/part-m-00000 -m 1;
+
+or
+
+$sqoop export --connect jdbc:mysql://quickstart.cloudera:3306/retail_db
+--username root -P --table departments1 --export-dir /todayresultwed -m 1;
+
+
+
+
+
+
+
+

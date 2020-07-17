@@ -1,0 +1,1239 @@
+changes setting for drag and drop from windows to linux
+https://www.guru99.com/bigdata-tutorials.html
+$--user terminal
+#--admin terminal
+sudo jps--successfull installation of coludera pakges. java virtual machin process status tool
+
+su--to change prompt  to admin terminal
+exit--to exit from admin terminal
+pwd-to check the current working directory
+
+hdfs command
+
+3 types of file system
+
+local file sys:data on local mc
+
+distributed file sys: data on remote mc
+
+HDFS : data inside the cluster
+
+
+hadoop version-to get the version details
+hadoop fs--list all hdfs command
+ifconfig--ip address  
+hadoop fs –help <command>--to get help about a command.
+	hadoop fs –help cat
+	Hadoop fs –help put
+https://www.edureka.co/blog/hdfs-commands-hadoop-shell-command
+hadoop fs  -mkdir /Banking--to create a directory
+if error occurs as  name is in safe mode 
+Use hdfs command instead of hadoop command for newer distributions. The hadoop command is being deprecated:
+hdfs dfsadmin -safemode leave
+
+hadoop fs  -mkdir /dir1 /dir2 /dir3--create multiple directories in hdfs
+ to create new directory in dir3 command is 
+hadoop fs  -mkdir /dir1 /dir2 /dir3 /dir4
+
+
+
+hadoop fs -mkdir -p /dir4/cards (sybdirectiories in parent directory)
+
+create a file emp.txt
+use put command to copy file form LFS to HDFS
+hadoop fs -put /home/cloudera/Desktop/emp.txt /cards
+
+command to copy from HDFS to local 
+
+
+tomorrow we will meet at 4 PM
+
+let me finish with rest commands
+
+after that every one will start with the assignment till 5 PM
+
+github.com/manisha-atos/BigDataAssinments
+
+
+
+
+
+
+
+to display data
+hadoop fs -cat /dir1/emp.txt
+hadoop fs -cat /home/cloudera/Desktop/emp.txt --getting error
+
+
+we can browse the files and directories in brower
+select namenode->utilities 
+browse the directories 
+d-directory
+_-file
+single node/multinode
+block size 128 MB
+RF-1
+
+to explore the dirctory
+hadoop fs -ls dir1
+hadoop fs -touchz /dir1.stu.txt--will create new file with size as 0
+hadoop fs -ls dir1
+hadoop fs -cat /dir1/emp.txt--display the content
+hadoop fs -text /dir1/emp.txt--display the content
+
+To check the type
+test
+
+Usage: hdfs dfs -test -[ezd] URI
+
+Options:
+•The -e option will check to see if the file exists, returning 0 if true.
+•The -z option will check to see if the file is zero length, returning 0 if true.
+•The -d option will check to see if the path is directory, returning 0 if true.
+
+-f--file
+-z--empty file
+-d--directory
+	hadoop fs -touchz /dir1.stu.txt
+	hadoop fs -test -z /dir1.stu.txt
+	$ echo $?
+	output -0 (true) 1(flase) if it is a file with size 0
+
+	hadoop fs -test -d /dir1
+	$ echo $?(0)
+	
+	
+	hadoop fs -test -d /dir1/stu.txt
+	$ echo $?(0)
+
+
+	hadoop fs -test -f /dir1/stu.txt
+	$ echo $?
+
+command to copy from HDFS to local 
+hadoop fs -copyToLocal /dir1/emp.txt /home/cloudera/Desktop/payments
+
+get
+HDFS Command to copy files from hdfs to the local file system.
+hadoop fs –get /dir1/emp.txt /home/cloudera/Desktop/payments
+
+
+du
+HDFS Command to check the file size. 
+hadoop fs –du –s /dir1/emp.txt
+40 40 /d1/d2/d3/student.txt
+1-->size of file
+2-->total disk space use includding the replica 
+
+
+count
+HDFS Command to count the number of directories, 
+files, 
+and bytes under the paths that match the specified file pattern.
+
+hdfs dfs -count <path>
+hadoop fs -count /dir1
+
+
+rm
+HDFS Command to remove the file from HDFS.
+hadoop fs -rm /dir1/emp.txt
+
+
+rm -r
+HDFS Command to remove the entire directory and all of its content
+ from HDFS.
+hadoop fs -rm -r /dir1
+
+rmdir --to remove the directory
+
+hadoop fs -rmdir /dir1(if files r present then gives an error)
+
+cp
+
+
+HDFS Command to copy files from source to destination. This command allows multiple sources as well, in which case the destination must be a directory.
+
+Usage: hdfs dfs -cp <src> <dest>
+
+Command: hdfs dfs -cp /user/hadoop/file1 /user/hadoop/file2
+Command: hdfs dfs -cp /user/hadoop/file1 /user/hadoop/file2 /user/hadoop/dir  
+
+
+
+
+setrep
+setrep
+
+Usage: hdfs dfs -setrep [-R] [-w] <numReplicas> <path> 
+
+Changes the replication factor of a file. If path is a directory then the command recursively changes the replication factor of all files under the directory tree rooted at path.
+
+Options:
+•The -w flag requests that the command wait for the replication to complete.
+ This can potentially take a very long time.
+•The -R flag is accepted for backwards compatibility. It has no effect.
+
+Example:
+•hdfs dfs -setrep -w 3 /user/hadoop/dir1
+
+Exit Code:
+
+Returns 0 on success and -1 on error.
+
+chmod
+
+Usage: hdfs dfs -chmod [-R] <MODE[,MODE]... | OCTALMODE> URI [URI ...]
+
+Change the permissions of files. With -R, make the change recursively through the directory structure. The user must be the owner of the file, or else a super-user. Additional information is in the Permissions Guide.
+
+Options
+•The -R option will make the change recursively through the directory structure.
+
+moveFromLocal
+tail
+
+stat
+
+Usage: hdfs dfs -stat URI [URI ...]
+
+Returns the stat information on the path.
+
+Example:
+•hdfs dfs -stat path
+
+Exit Code: Returns 0 on success and -1 on error.
+
+
+tail
+
+Usage: hdfs dfs -tail [-f] URI
+
+Displays last kilobyte of the file to stdout.
+
+Options:
+•The -f option will output appended data as the file grows, as in Unix.
+
+Example:
+•hdfs dfs -tail pathname
+
+Exit Code: Returns 0 on success and -1 on error.
+
+getmerge
+wc
+
+hadoop fs -cat |wc
+hadoop fs -cat |wc l
+hadoop fs -cat |wc w
+hadoop fs -cat |wc c
+
+
+
+
+pls chk the repository 
+
+https://github.com/Manisha-atos/BigDataAssignment
+
+
+appendToFile
+
+Usage: hdfs dfs -appendToFile <localsrc> ... <dst> 
+
+Append single src, or multiple srcs from local file system to the destination file system. Also reads input from stdin and appends to destination file system.
+•hdfs dfs -appendToFile localfile /user/hadoop/hadoopfile
+•hdfs dfs -appendToFile localfile1 localfile2 /user/hadoop/hadoopfile
+•hdfs dfs -appendToFile localfile hdfs://nn.example.com/hadoop/hadoopfile
+•hdfs dfs -appendToFile - hdfs://nn.example.com/hadoop/hadoopfile Reads the input from stdin.
+
+Exit Code:
+
+Returns 0 on success and 1 on error.
+
+getmerge
+
+Usage: hdfs dfs -getmerge <src> <localdst> [addnl]
+
+Takes a source directory and a destination file as input and concatenates files in src into the destination local file. Optionally addnl can be set to enable adding a newline character at the end of each file.
+
+
+https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html
+
+HBASE:
+
+hbase shell
+exit
+
+list--to list all tables 
+status
+version
+table_help
+whoami
+help create 
+------------------------
+if any service is down 
+$su
+pwd cloudera
+#sudo service hbase-master restart
+#sudo service hbase-regionserver restart
+-------------------------------
+disable 'emp'
+list 
+drop 'emp'
+
+-------------------------------
+create ‘<table name>’,’<column family>’
+create 'emp','personal','professional'
+
+put 'emp' ,'1','personal:name','manisha'
+put 'emp' ,'1','personal:city','pune'
+put 'emp' ,'1','personal:age','52'
+put 'emp' ,'1','professional:cmp','Atos Syntel'
+put 'emp' ,'1','professional:sal','12456'
+
+put 'emp' ,'2','personal:fname','manisha'
+
+put 'emp' ,'2','location:city','pune'--error as unknown family
+
+
+create 'customer' ,'pdetails','prddetails'
+put 'customer','101','pdetails:cname','Manisha'
+put 'customer','101','pdetails:gender','Female'
+
+put 'customer' ,'101','prddetails:pname','Laptop'
+put 'customer','101','prddetails:brd','Dell'
+
+recobvery??
+
+scan emp
+get 'employee', '2'
+get 'emp', '3', {COLUMN => 'personal:city'}
+---------------
+disable ‘emp’
+list 'emp'
+scan 'emp'
+is_disabled 'table name'
+disable_all 'r.*'
+enable 'emp'
+list 'emp'
+scan 'emp'
+is_enabled 'table name',
+describe 'table name'
+---------------------------
+scan 'emp' ,{column=>'personal:city',VERSION=>2}
+put 'emp' ,'2','personal:city','Mumbai'
+scan 'emp' ,{column=>'personal:city',VERSION=>2}
+---------------------------------------
+http://hadooptutorial.info/hbase-shell-commands-in-practice/
+https://hbase.apache.org/book.html#versions
+
+alter: Using this command, you can change the maximum number of cells of a column family, set and delete table scope operators, and delete a column family from a table.
+In the following example, the maximum number of cells is set to 5.
+ alter 'emp', NAME ? 'personal', VERSIONS => 5
+
+In the following example, we have made the emp table read only.
+alter 'emp', READONLY
+
+Deleting a Column Family
+alter ‘ table name ’, ‘delete’ ? ‘ column family ’ 
+alter 'employee','delete'=>'professional'
+
+Alter ‘employee’,NAME=>’ geography’
+---------------------------------------------
+
+
+This chapter demonstrates how to create data in an HBase table. To create data in an HBase table, the following commands and methods are used:
+
+-------Inserting Data using HBase Shell-------------
+put command,
+add() method of Put class, and
+put() method of HTable class.
+--------------------Updating Data using HBase Shell-------------
+
+
+You can update an existing cell value using the put command. To do so, just follow the same syntax and mention your new value as shown below.
+scan 'emp'
+put 'emp','1','personal:city','Delhi'
+
+---Reading Data-----
+Using get command, you can get a single row of data at a time.
+get 'emp', '1'
+Reading a Specific Column
+get 'emp', '1', {COLUMN =>'personal:name'}
+get 'emp', '1', {COLUMN =>'personal'}
+get 'emp', '1', {COLUMN =>['personal','professional']}
+
+
+---deleting table data-----
+delete ‘<table name>’, ‘<row>’, ‘<column name >’, ‘<time stamp>’
+delete 'emp', '1', 'personal data:city'
+deleteall 'emp','1'
+
+
+In the Apache HBase you can have many cells where row and columns are same but differs only in version values. A version is a timestamp values is written alongside each value
+
+
+ctrl+l
+
+
+22.	Add the column family named as “geography” to the existing table “employee” in HBase.
+Alter ‘employee’,NAME=>’ geography’
+
+scan 'emp' ,{COLUMN=>'personal:city',VERSIONS=>2}
+
+
+https://acadgild.com/blog/different-types-of-filters-in-hbase-shell
+
+
+HIVE:
+Hadoop is an open-source framework to store and process Big Data in a distributed environment. It contains two modules, one is MapReduce and another is Hadoop Distributed File System (HDFS).
+
+MapReduce: It is a parallel programming model for processing large amounts of structured, semi-structured, and unstructured data on large clusters of commodity hardware.
+
+
+HDFS:Hadoop Distributed File System is a part of Hadoop framework, used to store and process the datasets. It provides a fault-tolerant file system to run on commodity hardware.
+
+
+The Hadoop ecosystem contains different sub-projects (tools) such as Sqoop, Pig, and Hive that are used to help Hadoop modules.
+
+Sqoop: It is used to import and export data to and from between HDFS and RDBMS.
+
+
+Pig: It is a procedural language platform used to develop a script for MapReduce operations.
+
+
+Hive: It is a platform used to develop SQL type scripts to do MapReduce operations.
+
+Pig is only one tool which can process the unstr data.yahoo product
+Hive is a data warehouse infrastructure software that can create interaction between user and HDFS.
+It is a FAcebook product.
+It is used for quering purpose or to analyze large amount of str data.
+It is using HQL language.It is like SQL.
+ETL tool just to load the data.
+In Hive sub query ,update and delete are not possible
+
+Hbase client pig and hive.
+
+if u want to do update in hive then first we need to create a replica in hbase and perform update in hbase .
+hbase can perform CRUD operation
+convert jobs into MapReduce jobs
+operations
+load 
+
+/user/hive/warehouse
+
+if user wants connect with hbase using java we can go for jdbc odbc
+we r using the hue as an web interface to connect with hbase hue client
+or we can use a commandline interface to interac with hbase.hive cli 
+
+theft servre is a client side api used for executing all HQL Statements.
+
+Driver is a combination of compiler,executer & optimizer 
+
+responsible for all 3,plays a major role
+
+MetaStrore:storage unit either internale /external table are strored in metastror .default metastore  or  warehouse location is /user/hive/warehoues.
+
+Execution in Hive
+
+Queries:
+hive shell
+show databases
+create database banking;
+use banking
+to chekk the current db
+set hive.cli.print.current.db=true
+
+!clear --to clear the screen
+
+DROP DATABASE IF EXISTS userdb CASCADE;
+
+it Supports 2 type of tables
+Managed/internal table :default location is metastrore
+external table : need to specify the location with location keyword,if not specified then location will be metastore.
+
+CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.] table_name
+[(col_name data_type [COMMENT col_comment], ...)]
+[COMMENT table_comment]
+[ROW FORMAT row_format]
+[STORED AS file_format]
+
+Managed Tables:
+1.Create table & load data from LFS
+create table product (pid int,pname string,price double)
+row format delimited fields terminated by ',';
+
+create table product (pid int,pname string,price double)
+row format delimited field terminated by '\t';
+
+load data local inpath'/home/cloudera/Desktop/demo/product.txt' into table product
+
+select * from product
+
+2.Create table & load data from HDFS
+hadoop fs -put /home/cloudera/Desktop/emp.txt /dir1/dir2
+
+create table product (pid int,pname string,price double)
+row format delimited field terminated by ',';
+
+create table product (pid int,pname string,price double)
+row format delimited field terminated by '\t';
+
+load data  inpath'/dir1/dir2/emp.txt' into product
+select * from product
+insert into product values (1,'a',3000);
+
+
+3.Create external table & load data from LFS
+create external table product (pid int,pname string,price double) 
+row format delimited field terminated by '\t' 
+location '/cards/pay';;//changing the hive location
+
+create external table employee(Name String, Sal Int) row format delimited fields terminated by ',';//def location of hive
+
+load data local inpath'/home/cloudera/Desktop/demo/product.txt' into product
+
+4.Create external table & load data from HDFS.
+create external table product (pid int,pname string,price double)
+row format delimited field terminated by '\t'
+location '/cards/pay';//changing the hive location
+
+create external table employee(Name String, Sal Int) row format delimited fields terminated by ',';//def location of hive
+
+load data local inpath'/dir1/dir2/emp.txt' into product
+
+Tables in Hive
+
+
+When you drop an internal table, it drops the data, and it also drops the metadata.
+
+When you drop an external table, it only drops the meta data. That means hive is ignorant of that data now. It does not touch the data itself
+Managed tables
+
+A managed table is stored under the hive.metastore.warehouse.dir path property, by default in a folder path similar to /user/hive/warehouse/databasename.db/tablename/. The default location can be overridden by the location property during table creation. If a managed table or partition is dropped, the data and metadata associated with that table or partition are deleted. If the PURGE option is not specified, the data is moved to a trash folder for a defined duration.
+
+Use managed tables when Hive should manage the lifecycle of the table, or when generating temporary tables.
+
+External tables
+
+
+
+An external table describes the metadata / schema on external files. External table files can be accessed and managed by processes outside of Hive. External tables can access data stored in sources such as Azure Storage Volumes (ASV) or remote HDFS locations. If the structure or partitioning of an external table is changed, an MSCK REPAIR TABLE table_name statement can be used to refresh metadata information.
+
+Use external tables when files are already present or in remote locations, and the files should remain even if the table is dropped.
+
+As mentioned above, Hive has two types of tables:
+
+•Managed table
+
+
+•External table
+
+
+For managed tables, Hive controls the lifecycle of their data. Hive stores the data for managed tables in a sub-directory under the directory defined by hive.metastore.warehouse.dir by default.
+
+When we drop a managed table, Hive deletes the data in the table.But managed tables are less convenient for sharing with other tools. For example, lets say we have data that is created and used primarily by Pig , but we want to run some queries against it, but not give Hive ownership of the data. 
+
+ 
+
+For External Tables ,Hive does not move the data into its warehouse directory. If the external table is dropped, then the table metadata is deleted but not the data.
+
+For Internal tables , Hive moves data into its warehouse directory. If the table is dropped, then the table metadata and the data will be deleted.
+
+
+
+
+
+To answer you Question :
+
+For External Tables ,Hive does not move the data into its warehouse directory. If the external table is dropped, then the table metadata is deleted but not the data.
+
+For Internal tables , Hive moves data into its warehouse directory. If the table is dropped, then the table metadata and the data will be deleted.
+
+
+
+
+
+To answer you Question :
+
+For External Tables ,Hive does not move the data into its warehouse directory. If the external table is dropped, then the table metadata is deleted but not the data.
+
+For Internal tables , Hive moves data into its warehouse directory. If the table is dropped, then the table metadata and the data will be deleted.
+
+Let us see about the above tables in detail
+
+Managed table
+
+Managed table is also called as Internal table. This is the default table in Hive. When we create a table in Hive without specifying it as external, by default we will get a Managed table.
+
+If we create a table as a managed table, the table will be created in a specific location in HDFS.
+
+By default, the table data will be created in /usr/hive/warehouse directory of HDFS.
+
+If we delete a Managed table, both the table data and meta data for that table will be deleted from the HDFS.
+
+Let us create a managed table with the below command.
+create table employee(Name String, Sal Int) row format delimited fields terminated by ',';
+https://acadgild.com/blog/managed-and-external-tables-in-hive
+
+!ctrl
+truncate manage table
+order by
+alter
+formatted schema
+command to execute script in hive
+joins
+complex data type
+comment in hive--
+metastore location
+exit;
+
+
+
+Scoop:
+How Sqoop Works?
+
+The following image describes the workflow of Sqoop.
+Sqoop Work
+Sqoop Import
+
+The import tool imports individual tables from RDBMS to HDFS. Each row in a table is treated as a record in seleHDFS. All records are stored as text data in text files or as binary data in Avro and Sequence files.
+
+Sqoop Export
+
+The export tool exports a set of files from HDFS back to an RDBMS. The files given as input to Sqoop contain records, which are called as rows in table. Those are read and parsed into a set of records and delimited with user-specified delimiter.
+
+cloudera had default database as mysql
+
+sqoop version
+mysql -u root -p
+pwd:cloudera
+
+show databses;
+use retail_bd;
+show tables;
+
+Import MYSQL to HDFS
+
+$ sqoop import --connect jdbc:mysql://quickstart.cloudera:3306/retail_db  \
+ --username root -P --table department --target-dir /d2/todayresult -m 1
+
+or
+
+sqoop import --connect jdbc:mysql://localhost:3306/retail_db 
+--username root -P --table departments --target-dir /todayresultwed -m 1
+m-->Mapper by default the mapper job is 4 to change it to 1
+
+To display Data on command prompt
+$ hadoop fs -ls /todayresultwed
+$ hadoop fs -cat /todayresultwed/part*
+
+
+Export HDFS to MYSQL
+
+mysql> create table departments1 like departments;
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> select * from departments1;
+Empty set (0.00 sec)
+
+
+clear the screen in mysql ctrl+L
+
+
+$sqoop export --connect jdbc:mysql://localhost:3306/retail_db --username \
+root -P --table departments1 --export-dir /d2/todayresult -m 1;
+
+or
+
+$sqoop export --connect jdbc:mysql://quickstart.cloudera:3306/retail_db
+--username root -P --table departments1 --export-dir /todayresultwed -m 1;
+
+
+
+$sqoop help
+
+$sqoop list-databases --connect jdbc:mysql://localhost --username root -P;
+
+$sqoop list-tables --connect jdbc:mysql://localhost/retail_db \
+--username root -P
+
+
+Import RDBMS to HBase
+
+$ sqoop import --connect jdbc:mysql://quickstart.cloudera:3306/retail_db \
+ --username root -P --table orders --hbase-create-table \
+--column-family orderdescription \
+--hbase-table orderfinal \
+--hbase-row-key order_id -m 1; 
+
+$hbase shell
+$list
+$scan 'orderfinal'
+
+we can not export HBase to mysql
+
+sqoop eval --connect jdbc:mysql://quickstart.cloudera:3306/retail_db \
+--username root -P --query "select * from department";
+
+$sqoop eval --connect jdbc:mysql://localhost/retail_db --username root -P -e "insert into departments values(11,'Finance')";
+
+TO IMPORT FROM mysqL TO hdfs
+
+$sqoop --options-file /home/cloudera/Desktop/input.txt --table departments --target-dir /overviewres -m 1;
+
+
+input.txt
+
+import--connect
+jdbc:mysql://localhost/retail_db
+--username
+root
+-P
+
+
+INCREMENTAL APPEND:
+$ sqoop import --connect jdbc:mysql://localhost/retail_db --username root -P --table departments --target-dir /overviewres --incremental append --check-column department_id --last-value 10 -m 1;
+
+$hadoop fs -ls /overviewres
+
+$hadoop fs -cat /overviewres/part-m-00001
+
+$hadoop fs -cat /overviewres/part-m-00000
+
+----------------
+$sqoop import-all-tables --connect jdbc:mysql://localhost/retail_db
+--username root -P --warehouse-dir /resultwar -m 1
+
+$sqoop import-all-tables --connect jdbc:mysql://localhost/retail_db
+--username root -P --warehouse-dir /resultwar1
+--exclude-tables categories,orders,products,order_items,departments1,customers
+-m 1
+
+---------------------------
+https://dzone.com/articles/sqoop-import-data-from-mysql-to-hive
+sqoop import --connect jdbc:mysql://localhost:3306/retail_db 
+--username root 
+-P --split-by id 
+--columns id,name --table customer 
+--target-dir /home/cloudera/Desktop/demo/customer1
+ --fields-terminated-by ","
+ --hive-import --create-hive-table --hive-table newcust
+
+Data is imported successfully from customer table (mysql)-->hive table newcust
+
+
+
+Pig
+In a MapReduce framework, programs need to be translated into a series of Map and Reduce stages. However, this is not a programming model which data analysts are familiar with. So, in order to bridge this gap, an abstraction called Pig was built on top of Hadoop. 
+https://www.guru99.com/introduction-to-pig-and-hive.html
+Pig latin scripting -->Java 
+built support such as filtering, sorting, ordering
+UDF
+not complex as compare to java
+less code as SQL 
+
+IN_MEMORY option doesn't change when table content is
+transferred into RAM. Whether set to true or false, the blocks of
+data are only loaded into memory after a normal retrieval operation.
+When IN_MEMORY is set to true, HBase just tries to keep data in memory
+more aggressively than it normally would. This wiki explains it in
+more detail:
+
+
+http://jimbojw.com/wiki/index.php?title=Understanding_HBase_column-family_performance_options
+
+pig script-->logical plan-->physicalplav-->Map reduce -->Hadoop 
+
+pigcsript-->parser (syntax)-->DAC (logical representation)-->optimizer -->complier-->map reduce-->execuction engine(Hadoop)-->o/p
+
+Pig is 2 modes
+
+local-->data from LFS
+Mapreduce-->data FROm HDFS
+
+Execution in 3 ways
+1.interactive mode(grunt) 
+2.Batch Mode(pig script)
+3.embedded(UDF)
+
+
+pig –x local
+pig –x mapreduce
+
+
+1.Local mode: In this mode, Pig runs in a single JVM and makes use of local file system. This mode is suitable only for analysis of small datasets using Pig
+
+
+2.Map Reduce mode: In this mode, queries written in Pig Latin are translated into MapReduce jobs and are run on a Hadoop cluster (cluster may be pseudo or fully distributed). MapReduce mode with the fully distributed cluster is useful of running Pig on large datasets.
+
+
+Now, you can execute the script in the above file as shown below.
+
+Local mode:$ pig -x local Sample_script.pig
+
+MapReduce mode: $ pig -x mapreduce Sample_script.pig 
+
+clear
+help
+history
+
+ Data Types:
+basic /primitive--int,float,double,boolean,charray,butearray
+complex :tuple (,,,),bag{(),(),()}, map[key#value,key#value,key#value]
+atom (literal)
+Loading and Storing 
+LOAD To Load the data from the file system (local/HDFS) into a relation. 
+
+STORE To save a relation to the file system (local/HDFS). 
+DUMP
+
+s1 = LOAD 'file path ' USING PigStorage (',')
+s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage (',');
+dump s1;
+describe s1->Unknow scheme
+explain s1-->logical ,physicla,Map reduce 
+
+The describe operator is used to view the schema of a relation
+The explain operator is used to display the logical, physical, and MapReduce execution plans of a relation.
+
+The illustrate operator gives you the step-by-step execution of a sequence of statements.
+tuple->(,,)
+bag->{(),(),()}
+Map->[key#value,key#value]
+-----------------------------LFS--------------------------
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+STORE s1 INTO '/home/cloudera/Desktop/demo/o1 ' USING PigStorage(',');
+STORE s2 INTO '/d1/o1 ' USING PigStorage(',');
+
+
+
+
+--------------------------------HDFS----------------------------
+ s1 = LOAD '/d1/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+-------------------------------------------------------
+ Pig Latin provides four different types of diagnostic operators -
+Dump operator
+Describe operator
+Explanation operator
+Illustration operator
+--------------------------Group By --------------------------------------
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+grp_data = GROUP s1  by age;
+dump grp_data;
+
+grp_data = GROUP s1  by (age,city);
+
+group_all = GROUP s1 All;
+
+---------------------------co group-------------------------------------------------:
+
+
+c1 = LOAD '/home/cloudera/Desktop/demo/customer.txt' USING PigStorage(',' ) as (id:int,fname:chararray,age:int,city:chararray,sal:float);[cloudera@quicks
+cogroup_data = COGROUP s1 by age, c1 by age
+exec Command
+
+s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+group_data =COGROUP s1 by age, c1 by age;
+
+---------Joins----------------------------
+self join
+
+inner join
+
+outer join
+
+customers.txt
+==================================
+1,Raj,32,Ahmedabad,2000.00
+2,Keerthana,25,Delhi,1500.00
+3,karthi,23,Kota,2000.00
+4,Shyam,25,Mumbai,6500.00 
+5,Hari,27,Bhopal,8500.00
+6,Kannan,22,MP,4500.00
+7,Mukil,24,Indore,10000.00
+
+orders.txt
+==================================
+102,2017-01-08 00:00:00,3,3000
+100,2017-01-08 00:00:00,3,1500
+101,2017-02-20 00:00:00,2,1560
+103,2016-05-20 00:00:00,4,2060
+
+
+customers = LOAD '/home/cloudera/Desktop/demo/customer.txt' USING PigStorage(',')
+   as (id:int, name:chararray, age:int, address:chararray, salary:int);
+  
+orders = LOAD '/home/cloudera/Desktop/demo/order.txt' USING PigStorage(',')
+   as (oid:int, date:chararray, customer_id:int, amount:int)
+
+
+
+Self-join
+==================================
+c1 = LOAD '/home/cloudera/Desktop/demo/customer.txt' USING PigStorage(',')
+   as (id:int, name:chararray, age:int, address:chararray, salary:int);
+  
+grunt>c2= LOAD '/home/cloudera/Desktop/demo/customer.txt' USING PigStorage(',')
+   as (id:int, name:chararray, age:int, address:chararray, salary:int); 
+
+
+c3 = JOIN c1 BY id, c2 BY id;
+
+
+Inner-join
+==================================
+coustomer_orders = JOIN customers BY id, orders BY customer_id;
+
+Left Outer-join
+==================================
+outer_left = JOIN customers BY id LEFT OUTER, orders BY customer_id;
+
+Right Outer-join
+==================================
+outer_right = JOIN customers BY id RIGHT, orders BY customer_id;
+
+Full Outer-join
+==================================
+outer_full = JOIN customers BY id FULL OUTER, orders BY customer_id;
+
+
+Using the exec command, we can execute Pig scripts from the Grunt shell.
+
+Syntax
+
+Given below is the syntax of the utility command exec.
+grunt> exec [–param param_name = param_value] [–param_file file_name] [script]
+
+---------------------------------Set oprators---------------------
+Example
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+ s2 = LOAD '/home/cloudera/Desktop/demo/student1.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+union_data= UNION s1, s2;
+
+---------Split------------------------------------------
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+SPLIT student_details into student_details1 if age<23, student_details2 if ( age>=23);
+dump student_details1;
+dump student_details2;
+
+------------------------Filter
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+city_filter = FILTER s1 BY city == 'PUNE'
+dump city_filter-->data fpr customers with city is PUNE;
+
+city_filter = FILTER s1 BY city == 'Pune' or age == 23;
+
+----------------distinct -----------------------
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+distinct_data = DISTINCT s1;
+dump distinct_data;
+--------------------ForEach------------------------
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+foreach_data = FOREACH s1 GENERATE id,age,city;
+
+--------------------order by---------------
+ s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+order_by_data = ORDER s1 BY age DESC;
+order_by_data = ORDER s1 BY city;
+
+====================limit=======================
+s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+limit_data = LIMIT s1 4; 
+
+dump limit_data;
+----------------------------------Eval Function-------------
+avg,min,max,count
+=================
+s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+student_group_all = Group s1 by city;
+
+Dump student_group_all;
+
+
+s1_avg = foreach student_group_all Generate (s1.fname, s1.age), AVG(s1.age);
+
+dump s1_avg;
+
+s1_max = foreach student_group_all Generate (s1.fname, s1.age), MAX(s1.age),MIN(s1.age);
+
+dump s1_max;
+
+student_group_all = Group s1 all;
+s1_max = foreach student_group_all Generate ,MAX(s1.age),MIN(s1.age);
+
+s1_count = foreach student_group_all Generate COUNT(s1.age);
+
+dump s1_count;
+Difference:
+===========
+Emp_sales.txt
+===============
+1,Robin,22,25000,sales
+2,BOB,23,30000,sales
+3,Maya,23,25000,sales
+4,Sara,25,40000,sales
+5,David,23,45000,sales
+6,Maggy,22,35000,sales
+
+Emp_bonus.txt
+=================
+1,Robin,22,25000,sales
+2,Jaya,23,20000,admin
+3,Maya,23,25000,sales
+4,Alia,25,50000,admin
+5,David,23,45000,sales
+6,Omar,30,30000,admin
+
+
+emp_sales = LOAD '/home/cloudera/Desktop/demo/employee_sales.txt' USING PigStorage(',')as (sno:int, name:chararray, age:int, salary:int, dept:chararray);
+
+emp_bonus = LOAD '/home/cloudera/Desktop/demo/employee_bonus.txt' USING PigStorage(',')as (sno:int, name:chararray, age:int, salary:int,dept:chararray);
+
+cogroup_data = COGROUP emp_sales by sno, emp_bonus by sno;
+Dump cogroup_data;
+
+
+diff_data = FOREACH cogroup_data GENERATE DIFF(emp_sales,emp_bonus);
+
+dump diff_data;
+
+
+Subtract
+============
+cogroup_data = COGROUP emp_sales by sno, emp_bonus by sno;
+
+Dump cogroup_data;
+
+sub_data = FOREACH cogroup_data GENERATE SUBTRACT(emp_sales, emp_bonus);
+
+Dump sub_data;
+
+sub_data = FOREACH cogroup_data GENERATE SUBTRACT(emp_bonus, emp_sales);
+
+Dump sub_data;
+
+IsEmpty
+============
+cogroup_data = COGROUP emp_sales by sno, emp_bonus by age;
+
+Dump cogroup_data;
+
+isempty_data = filter cogroup_data by IsEmpty(emp_sales);
+
+Dump isempty_data;
+============================Load and Store ==============================
+
+BinStorage 
+============================
+
+student_details = LOAD 'student_details.txt' USING PigStorage(',')as (id:int, firstname:chararray, age:int, city:chararray);
+
+STORE student_details INTO '/pig_Output/mydata' USING BinStorage();
+
+result = LOAD '/pig_Output/mydata/part-m-00000' USING BinStorage();
+
+=================================================String Functions=============
+upper_data = FOREACH s1 GENERATE (id,fname), UPPER(fname);
+
+=====================date functions=================================
+orders = LOAD '/home/cloudera/Desktop/demo/order.txt' USING PigStorage(',')
+   as (oid:int, date:chararray, customer_id:int, amount:int);
+
+todate_data = foreach orders GENERATE  ToDate(date,'yyyy/MM/dd HH:mm:ss')
+   as (date_time:DateTime);
+
+
+=========================Bag and Tuple functions==============
+
+TOBAG
+=======
+s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+dump s1;
+
+bag_data = FOREACH s1 GENERATE TOBAG (id,fname,age,city);
+
+dump bag_data;
+
+
+TOP
+=====
+s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+emp_group = Group s1 BY age;
+data_top = FOREACH emp_group { 
+   top = TOP(2, 1, s1); 
+   GENERATE top; 
+}
+
+TOTUPLE
+==========
+s1 = LOAD '/home/cloudera/Desktop/demo/student.txt' USING PigStorage(',' ) as (id:int,fname:chararray,lname:chararray,age:int,mobile:chararray,city:chararray);
+
+ totuple = FOREACH s1 GENERATE TOTUPLE (id,fname,age);
+
+dump totuple;
+=======================Script in Pig=======================
+
+Executing Pig Script in Batch mode
+
+While executing Apache Pig statements in batch mode, follow the steps given below.
+
+Step 1
+
+Write all the required Pig Latin statements in a single file. We can write all the Pig Latin statements and commands in a single file and save it as .pig file.
+
+Step 2
+
+Execute the Apache Pig script. You can execute the Pig script from the shell (Linux) as shown below.
+
+
+Local mode
+
+MapReduce mode
+
+$ pig -x local Sample_script.pig $ pig -x mapreduce Sample_script.pig 
+
+You can execute it from the Grunt shell as well using the exec command as shown below.
+grunt> exec /sample_script.pig
+
+
+
+
+
+
+
+http://pig.praveendeshmane.co.in/pig/pig-limit-example.jsp
+
+
+ilt_TECH_UPS_009-0007 
+
+cs-reply@amazon.in
+
+
+Let us assume there is a file named student.txt in the /pig_data/ directory of HDFS with the following content.
+
+Student.txt
+001,Rajiv,Hyderabad
+002,siddarth,Kolkata
+003,Rajesh,Delhi
+
+
+And, assume we have a script file named sample_script.pig in the /pig_data/ directory of HDFS with the following content.
+
+Sample_script.pig
+student = LOAD 'hdfs://localhost:9000/pig_data/student.txt' USING PigStorage(',') 
+   as (id:int,name:chararray,city:chararray);
+  
+Dump student;
+
+Now, let us execute the above script from the Grunt shell using the exec command as shown below.
+grunt> exec /sample_script.pig
+
+
+Output
+
+The exec command executes the script in the sample_script.pig. As directed in the script, it loads the student.txt file into Pig and gives you the result of the Dump operator displaying the following content.
+(1,Rajiv,Hyderabad)
+(2,siddarth,Kolkata)
+(3,Rajesh,Delhi) 
+
+
+kill Command
+
+You can kill a job from the Grunt shell using this command.
+
+Syntax
+
+Given below is the syntax of the kill command.
+grunt> kill JobId
+
+
+Example
+
+Suppose there is a running Pig job having id Id_0055, you can kill it from the Grunt shell using the kill command, as shown below.
+grunt> kill Id_0055
+
+
+run Command
+
+You can run a Pig script from the Grunt shell using the run command
+
+Syntax
+
+Given below is the syntax of the run command.
+grunt> run [–param param_name = param_value] [–param_file file_name] script
+
+
+Example
+
+Let us assume there is a file named student.txt in the /pig_data/ directory of HDFS with the following content.
+
+Student.txt
+001,Rajiv,Hyderabad
+002,siddarth,Kolkata
+003,Rajesh,Delhi
+
+
+And, assume we have a script file named sample_script.pig in the local filesystem with the following content.
+
+Sample_script.pig
+student = LOAD 'hdfs://localhost:9000/pig_data/student.txt' USING
+   PigStorage(',') as (id:int,name:chararray,city:chararray);
+
+Now, let us run the above script from the Grunt shell using the run command as shown below.
+grunt> run /sample_script.pig
+
+
+You can see the output of the script using the Dump operator as shown below.
+grunt> Dump;
+
+(1,Rajiv,Hyderabad)
+(2,siddarth,Kolkata)
+(3,Rajesh,Delhi)
+
+
+Note - The difference between exec and the run command is that if we use run, the statements from the script are available in the command history.
+
+
+
+
+
+
+
+
+
+
+
+Rt processing-->Spark
+Service Resource Management-->MapReduce/Yarn
+Batch processing->Hadoop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
