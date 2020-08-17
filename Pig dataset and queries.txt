@@ -1,0 +1,45 @@
+DATASET:
+
+ 1,Avengers,1993,3.9,4568 
+ 1,Avengers,1993,3.9,4568 
+ 1,Avengers,1993,3.9,4568 
+ 2,The Mummy,1932,3.5,4388 
+ 3,Black,1921,3.2,9062 
+ 4,X-men,1991,2.8,6150 
+ 5,Twilight,1963,2.8,5126 
+ 5,Twilight,1963,2.8,5126 
+ 5,Twilight,1963,2.8,5126 
+ 6,Chipmunks,1985,3.8,5333 
+ 7,Muriel Wedding,1994,3.5,6323 
+ 8,Baby,1994,3.4,5733 
+ 9,Titanic,1929,3.5,5651 
+ 10,Nick of Time,1995,3.4,5333 
+ 9,Titanic,1929,3.5,5651 
+ 
+ Dataset 2:
+id      multiplex
+ 1      Cinemax
+ 2      PVR
+ 3      Cinemax
+ 8      Inox
+ 10Cinemax
+
+---Load Pig in grunt shell
+Pig –x mapreduce
+ 
+ 1)LOAD the dataset.
+ movies = LOAD 'pig1.txt' USING PigStorage(',') as (id,name,year,rating,duration);
+ 
+ 2)Show the data loaded.
+   
+ 3)List the movies that having a rating greater than 4 a
+ 4)Store the data
+ 5)List the movies that were released between 1950 and 1960
+ 6)List the movies that start with the Alpahbet A 
+ 7)List the movie names its duration in minutes
+ 8)List the years and the number of movies released each year
+ 9)List all the movies in the ascending order of year.
+ 10)Remove Duplicate values in the dataset.
+ 11)Load 5 movies dataset.
+ 12)Find movies running in Cinemax 
+ 
