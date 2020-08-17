@@ -1,0 +1,35 @@
+Rules: 
+(i) store all the output in different folders in HDFS (name them appropriately)
+(ii) You google if you have to :-)
+(iii) If you dont get the result, list your effort/query in word file so that we can grade your effort later
+(iV) Try not to copy :-P, Njoy and all the best
+
+
+
+1. Load the data from all the three files ( Do the appropriate changes in file inf any). make sure you assign the appropriate datatypes.
+
+2. List all Games/sports (Remove duplicates)
+
+3. Find a Game/Sport by its Id (Event_id)
+
+4. Find the country with maximum population
+
+5. Find the country with maximum players/participants
+
+6. list the Players over 18 years of age
+
+7. List the name of players who have taken part in team events
+
+8. In which events are australian players taking part in
+
+9. Find the event having maximum number of players
+
+10. Name the eldest player
+
+11. name any one palyer per event for every event and display the name of the payer's country
+
+12. add another colum having random number between 0 and 1 and print the name of players having smallest and largest number
+
+13. Write a word count program on your own
+
+
